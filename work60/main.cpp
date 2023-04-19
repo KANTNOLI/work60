@@ -1,8 +1,8 @@
-#include "main.h"
-#include "buss.h"
+#include "manager.h"
 
 int main() {
-	Bus buses[10];
+	const int SIZE = 10;
+	Bus buses[SIZE];
 	buses[0] = Bus("MAZ", "1234QW7", 10000, 23);
 	buses[1] = Bus("Mercedes Benz", "2345ER7", 125000, 58);
 	buses[2] = Bus("Neoplan", "3456TY7", 56000, 31);
@@ -15,8 +15,11 @@ int main() {
 	buses[9] = Bus("Volvo", "0123ZX7", 15000, 21);
 
 	// call business logic
+	Manager manager;
 
+	manager.sorting(buses, SIZE);
 	// ouput result
+	cout << manager.input_min_price_count(buses) << endl;
 
 	return 0;
 }
